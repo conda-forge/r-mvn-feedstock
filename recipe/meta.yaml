@@ -1,6 +1,5 @@
 {% set version = "5.9" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-mvn
@@ -13,8 +12,7 @@ source:
   sha256: 33dc88b60e657160477ca740a54bd488b3e931e7d1b43561912400dced019a04
 
 build:
-  merge_build_host: true  # [win]
-  number: 2
+  number: 3
   noarch: generic
   rpaths:
     - lib/R/lib/
