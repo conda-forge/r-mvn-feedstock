@@ -1,4 +1,4 @@
-{% set version = "5.9" %}
+{% set version = "6.0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/MVN_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/MVN/MVN_{{ version }}.tar.gz
-  sha256: 33dc88b60e657160477ca740a54bd488b3e931e7d1b43561912400dced019a04
+  sha256: 97cd8323c5433c39f245606e8c4073f3fa3f4c60fbe105461e906a31329a804e
 
 build:
-  number: 3
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
