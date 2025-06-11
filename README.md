@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-mvn-feedstock
 
 Home: https://CRAN.R-project.org/package=MVN
 
-Package license: GPL-2.0-or-later
+Package license: MIT
 
 Summary: Performs multivariate normality tests and graphical approaches and implements multivariate outlier detection and univariate normality of marginal distributions through plots and tests, and performs multivariate Box-Cox transformation (Korkmaz et al, (2014), <https://journal.r-project.org/archive/2014-2/korkmaz-goksuluk-zararsiz.pdf>).
 

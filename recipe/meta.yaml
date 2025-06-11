@@ -1,4 +1,4 @@
-{% set version = "5.9" %}
+{% set version = "6.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/MVN_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/MVN/MVN_{{ version }}.tar.gz
-  sha256: 33dc88b60e657160477ca740a54bd488b3e931e7d1b43561912400dced019a04
+  sha256: 2eff67c07fa8a13e4acff90d5abad902b966de0c01e257a26be7e3dca6396dc6
 
 build:
-  number: 3
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -21,34 +21,43 @@ build:
 requirements:
   build:
     - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-mass
     - r-boot
     - r-car
+    - r-cli
+    - r-dplyr
     - r-energy
-    - r-kableextra
-    - r-magrittr
+    - r-ggplot2
+    - r-mice
     - r-moments
-    - r-mvoutlier
     - r-nortest
-    - r-plyr
-    - r-psych
-    - r-robustbase
+    - r-plotly
+    - r-purrr
+    - r-stringr
+    - r-tibble
+    - r-tidyr
+    - r-viridis
   run:
     - r-base
     - r-mass
     - r-boot
     - r-car
+    - r-cli
+    - r-dplyr
     - r-energy
-    - r-kableextra
-    - r-magrittr
+    - r-ggplot2
+    - r-mice
     - r-moments
-    - r-mvoutlier
     - r-nortest
-    - r-plyr
-    - r-psych
-    - r-robustbase
+    - r-plotly
+    - r-purrr
+    - r-stringr
+    - r-tibble
+    - r-tidyr
+    - r-viridis
 
 test:
   commands:
@@ -57,34 +66,13 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=MVN
-  license: GPL-2.0-or-later
+  license: MIT
   summary: Performs multivariate normality tests and graphical approaches and implements multivariate outlier detection and univariate normality of marginal distributions through plots and tests, and performs multivariate Box-Cox transformation (Korkmaz et al, (2014), <https://journal.r-project.org/archive/2014-2/korkmaz-goksuluk-zararsiz.pdf>).
-  license_family: GPL2
+  license_family: MIT
   license_file:
-    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - LICENSE
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-
-# Package: MVN
-# Type: Package
-# Title: Multivariate Normality Tests
-# Version: 5.8
-# Date: 2019-09-27
-# Authors@R: c(person("Selcuk", "Korkmaz", role = c("aut", "cre"), email = "selcukorkmaz@gmail.com"), person("Dincer", "Goksuluk", role = "aut", email = "dincer.goksuluk@gmail.com"), person("Gokmen", "Zararsiz", role = "aut", email = "gokmenzararsiz@hotmail.com"))
-# Author: Selcuk Korkmaz [aut, cre], Dincer Goksuluk [aut], Gokmen Zararsiz [aut]
-# Maintainer: Selcuk Korkmaz <selcukorkmaz@gmail.com>
-# Depends: R (>= 3.5.0)
-# VignetteBuilder: knitr
-# Suggests: knitr
-# Imports: methods, nortest, moments, MASS, robustbase, mvoutlier, plyr, psych, boot, energy, kableExtra, magrittr, car
-# Collate: mvn.R hzTest.R mardiaTest.R roystonTest.R
-# Description: Performs multivariate normality tests and graphical approaches and implements multivariate outlier detection and univariate normality of marginal distributions through plots and tests, and performs multivariate Box-Cox transformation (Korkmaz et al, (2014), <https://journal.r-project.org/archive/2014-2/korkmaz-goksuluk-zararsiz.pdf>).
-# Encoding: UTF-8
-# License: GPL (>= 2)
-# RoxygenNote: 6.1.1
-# NeedsCompilation: no
-# Packaged: 2019-09-27 13:51:38 UTC; selcukkorkmaz
-# Repository: CRAN
-# Date/Publication: 2019-09-27 14:40:07 UTC
